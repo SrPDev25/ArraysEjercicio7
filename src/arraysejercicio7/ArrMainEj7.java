@@ -16,8 +16,8 @@ public class ArrMainEj7 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println(EntradaNumeros.numIntGrater("hola: ", 5));
+        Entrada entrada=new Entrada();
+        entrada.printTablaCategorias();
         
     }
     
