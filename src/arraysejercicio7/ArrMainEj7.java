@@ -4,7 +4,7 @@
  */
 package arraysejercicio7;
 
-import numbers.EntradaNumeros;
+import inputs.EntradaNumeros;
 
 /**
  *

@@ -4,7 +4,7 @@
  */
 package arraysejercicio7;
 
-import numbers.Fecha;
+import objects.Fecha;
 
 /**
  *
@@ -15,9 +15,33 @@ public class Empleado {
     Fecha fechaAlta;
     int categoria, numHijos,numHorasSemanales;
 
+    /**
+     * Constructor con fecha Fecha
+     * @param nombre Nombre del empleado
+     * @param fechaAlta Fecha de su alta
+     * @param categoria Categoria a la que pertenece
+     * @param numHijos Numero de hijos computables
+     * @param numHorasSemanales Horas semanales trabajadas
+     */
     public Empleado(String nombre, Fecha fechaAlta, int categoria, int numHijos, int numHorasSemanales) {
         this.nombre = nombre;
         this.fechaAlta = fechaAlta;
+        this.categoria = categoria;
+        this.numHijos = numHijos;
+        this.numHorasSemanales = numHorasSemanales;
+    }
+    
+    /**
+     * Constructor con fecha String
+     * @param nombre Nombre del empleado
+     * @param fechaAlta Fecha de su alta
+     * @param categoria Categoria a la que pertenece
+     * @param numHijos Numero de hijos computables
+     * @param numHorasSemanales Horas semanales trabajadas
+     */
+    public Empleado(String nombre, String fechaAlta, int categoria, int numHijos, int numHorasSemanales) {
+        this.nombre = nombre;
+        this.fechaAlta.setFecha(fechaAlta);
         this.categoria = categoria;
         this.numHijos = numHijos;
         this.numHorasSemanales = numHorasSemanales;
