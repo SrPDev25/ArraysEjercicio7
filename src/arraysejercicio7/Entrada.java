@@ -31,7 +31,7 @@ public class Entrada {
             new Categoria(20, 25, "Jefe Junior"),
             new Categoria(25, 30, "Jefe Senior"),};
     }
-
+    
     /**
      * Genera un "formulario" de empleados
      * Se piden el numero de empleados y seguido se va rellenando la información uno a uno
@@ -40,7 +40,7 @@ public class Entrada {
         Fecha fechaAlta = new Fecha();
         int numHijos, numHorasSemanales, categoria;
         String nombre;
-        int numEmpleados = EntradaNumeros.numIntGrater("Introduce el número de empleados", 1);
+        int numEmpleados = EntradaNumeros.numIntGrater("Introduce el número de empleados: ", 1);
         tablaEmpleados=new Empleado[numEmpleados];
         
         for(int i=0;i<numEmpleados;i++){
@@ -49,7 +49,7 @@ public class Entrada {
             printTablaCategorias();
             categoria=EntradaNumeros.numIntBetween("Categoria: ", 1, tablaCategorias.length);
             numHorasSemanales=EntradaNumeros.numIntGrater("Numero de horas trabajadas semanales: ",1);
-            fechaAlta=EntradaTextos.inputFecha("Fecha de alta (dd/mm/aaaa): ");
+            fechaAlta=EntradaTextos.inputFechaPasada("Fecha de alta (dd/mm/aaaa): ");
             numHijos=EntradaNumeros.numIntGrater("Numero de hijos computables (menores de 25 años): ", 0);
             
             tablaEmpleados[i]=new Empleado(nombre,fechaAlta,categoria,numHijos,numHorasSemanales);
@@ -84,4 +84,34 @@ public class Entrada {
         }
     }
 
+    /**
+     * Crea un informe de sueldo de los empleados anteriormente introducidos
+     */
+    public void printInformeSalario(){
+        System.out.println("\t\t\tINFORME EMPLEADOS\n"
+                + "NOMBRE\t\tCATEGORIA\t\tSALARIO");
+        for(int i=0;i<tablaEmpleados.length;i++){
+            System.out.println(tablaEmpleados[i].getNombre()+"\t\t"+tablaCategorias[tablaEmpleados[i].getCategoria()-1].getCategoria()+"\t\t"+calcularSalario(tablaEmpleados[i]) );
+        }
+    }
+    
+    /**
+     * Calcula el salario de un empleado
+     * @param empleadoAsalariado Se introduce el empleado en un tipo Empleado
+     * @return retorna el sueldo con un float
+     */
+    private float calcularSalario(Empleado empleadoAsalariado){
+        float sueldo=0;
+       float horasSemanales=empleadoAsalariado.getNumHorasSemanales();
+        if(horasSemanales>40){
+            sueldo+=40*tablaCategorias[empleadoAsalariado.getCategoria()-1].getTarifaOrdinaria();
+            horasSemanales-=40;
+            sueldo+=(horasSemanales*tablaCategorias[empleadoAsalariado.getCategoria()-1].getTarifaExtraordinaria());
+        }else{
+            sueldo+=horasSemanales*tablaCategorias[empleadoAsalariado.getCategoria()-1].getTarifaOrdinaria();
+        }
+        sueldo+=(Fecha.calcularEnios(empleadoAsalariado.getFechaAlta(), 3))*50;
+        
+        return sueldo;
+    }
 }

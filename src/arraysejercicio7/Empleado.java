@@ -40,6 +40,7 @@ public class Empleado {
      * @param numHorasSemanales Horas semanales trabajadas
      */
     public Empleado(String nombre, String fechaAlta, int categoria, int numHijos, int numHorasSemanales) {
+        this.fechaAlta=new Fecha();
         this.nombre = nombre;
         this.fechaAlta.setFecha(fechaAlta);
         this.categoria = categoria;

@@ -12,8 +12,8 @@ public class Categoria {
     float tarifaOrdinaria, tarifaExtraordinaria;
     String categoria;
 
-    public Categoria(float tarifaOrinaria, float tarifaExtraordinaria, String categoria) {
-        this.tarifaOrdinaria = (76);
+    public Categoria(float tarifaOrdinaria, float tarifaExtraordinaria, String categoria) {
+        this.tarifaOrdinaria = tarifaOrdinaria;
         this.tarifaExtraordinaria = tarifaExtraordinaria;
         this.categoria = categoria;
     }
