@@ -10,8 +10,8 @@ import objects.Fecha;
  */
 public class Entrada {
 
-    Empleado tablaEmpleados[];
-    Categoria tablaCategorias[];
+    private Empleado tablaEmpleados[];
+    private Categoria tablaCategorias[];
 
     
     public Entrada() {

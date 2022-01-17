@@ -11,9 +11,9 @@ import objects.Fecha;
  * @author casa
  */
 public class Empleado {
-    String nombre;
-    Fecha fechaAlta;
-    int categoria, numHijos,numHorasSemanales;
+    private String nombre;
+    private Fecha fechaAlta;
+    private int categoria, numHijos,numHorasSemanales;
 
     /**
      * Constructor con fecha Fecha

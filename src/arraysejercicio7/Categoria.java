@@ -9,8 +9,8 @@ package arraysejercicio7;
  * @author casa
  */
 public class Categoria {
-    float tarifaOrdinaria, tarifaExtraordinaria;
-    String categoria;
+    private float tarifaOrdinaria, tarifaExtraordinaria;
+    private String categoria;
 
     public Categoria(float tarifaOrdinaria, float tarifaExtraordinaria, String categoria) {
         this.tarifaOrdinaria = tarifaOrdinaria;
